@@ -2,9 +2,9 @@ require('dotenv').config()
 const webpush = require('web-push')
 const fs = require('fs')
 const VAPID = {
-    "subject": "mailto: <pavel@harelyshau.dev>",
-    "publicKey": "BB_OayafrL0WJmdmEsikI5zSxplbn4KxShNwOK_3_1H6DG_lP0d4SC0-2gWqCFxV51wtL5fEXjAfQvn3tRxwIIk",
-    "privateKey": process.env.VAPIDprivateKey
+    subject: 'mailto: <pavel@harelyshau.dev>',
+    publicKey: process.env.VAPID_PUBLIC_KEY,
+    privateKey: process.env.VAPID_PRIVATE_KEY
 }
 
 webpush.setVapidDetails(...Object.values(VAPID))
