@@ -9,15 +9,10 @@ const VAPID = {
 
 webpush.setVapidDetails(...Object.values(VAPID))
 
-module.exports = async () => {
+module.exports = async (title, options) => {
     try {
         const subscription = JSON.parse(fs.readFileSync('subscription.json'))
-        await webpush.sendNotification(subscription, JSON.stringify({
-            title: 'Any message here',
-            options: {
-                body: 'Lorem ipsum dolor',
-                icon: 'https://harelyshau.dev/resource/image/favicon/favicon.svg'
-            }
-        }))
+        const payload = JSON.stringify({ title, options })
+        await webpush.sendNotification(subscription, payload)
     } catch {}
 }

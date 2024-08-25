@@ -14,5 +14,11 @@ app.use('/notifications', notificationRouter)
 app.use('/appointments', appointmentRouter)
 
 
-setInterval(pushNotification, 25000)
+setTimeout(() => pushNotification(
+    `Thanks for visiting harelyshau.dev!`,
+    {
+        body: 'Hope you will find it useful!',
+        icon: 'https://harelyshau.dev/resource/image/favicon/favicon.svg'
+    }
+), 25000)
 app.listen(3000)
